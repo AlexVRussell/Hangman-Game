@@ -22,4 +22,4 @@ Ends the game when the player wins by guessing the correct word or loses by runn
 Displays appropriate messages for winning or losing the game.
 
 *Improvements* 
-Add a function where if the guesser is confindent in the answer or just wants to outright guess the word they can, as of right now if you were to guess a word it takes the letter at index 0 as the guess not the word itself.
+Add a function where if the guesser is confident in the answer or just wants to outright guess the word they can, as of right now if you were to guess a word it takes the letter at index 0 as the guess not the word itself.
