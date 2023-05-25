@@ -19,5 +19,6 @@ Determines if a guessed letter is correct or incorrect.
 Ends the game when the player wins by guessing the correct word or loses by running out of attempts.
 Displays appropriate messages for winning or losing the game.
 
-Improvements/What could be better
-The guesser can see the word that was chosen in the console.
+Improvements/What could be better (*UPDATE*)
+The original problem with the inputted word(s) for the guesser to guess was visable in the console, to combat this I simply added a for loop that iterates 50 times printing an empty string to create the space between the inputted word(s) and the game itself.
+
