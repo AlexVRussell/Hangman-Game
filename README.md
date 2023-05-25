@@ -1,5 +1,7 @@
 # Hangman-Game
 
+(*UPDATE*)
+The original problem with the inputted word(s) for the guesser to guess was visable in the console, to combat this I simply added a for loop that iterates 50 times printing an empty string to create the space between the inputted word(s) and the game itself.
 This program is a text-based implementation of the classic game of Hangman in Java. Players guess letters to uncover a secret word within a limited number of attempts.
 
 *Running the Game*
@@ -19,6 +21,5 @@ Determines if a guessed letter is correct or incorrect.
 Ends the game when the player wins by guessing the correct word or loses by running out of attempts.
 Displays appropriate messages for winning or losing the game.
 
-*Improvements* (*UPDATE*)
-The original problem with the inputted word(s) for the guesser to guess was visable in the console, to combat this I simply added a for loop that iterates 50 times printing an empty string to create the space between the inputted word(s) and the game itself.
-
+*Improvements* 
+Add a function where if the guesser is confindent in the answer or just wants to outright guess the word they can, as of right now if you were to guess a word it takes the letter at index 0 as the guess not the word itself.
