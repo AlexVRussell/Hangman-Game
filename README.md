@@ -2,6 +2,7 @@
 
 (*UPDATE*)
 The original problem with the inputted word(s) for the guesser to guess was visable in the console, to combat this I simply added a for loop that iterates 50 times printing an empty string to create the space between the inputted word(s) and the game itself.
+
 This program is a text-based implementation of the classic game of Hangman in Java. Players guess letters to uncover a secret word within a limited number of attempts.
 
 *Running the Game*
@@ -23,3 +24,4 @@ Displays appropriate messages for winning or losing the game.
 
 *Improvements* 
 Add a function where if the guesser is confident in the answer or just wants to outright guess the word they can, as of right now if you were to guess a word it takes the letter at index 0 as the guess not the word itself.
+If you have any improvements to this please reach out I'd love to improve my code and learn/grow to become better. Thanks.
