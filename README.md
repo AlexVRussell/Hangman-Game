@@ -1,7 +1,7 @@
 # Hangman-Game
 
 (*UPDATE*)
-The original problem with the inputted word(s) for the guesser to guess was visable in the console, to combat this I simply added a for loop that iterates 50 times printing an empty string to create the space between the inputted word(s) and the game itself.
+Added a feature that displays the visual representation of the iconic Hangman figure using the traditional syntax for a switch statement with 'case' and 'break' statements instead of the arrow syntax (->). I originally used the arrow syntax, but then shortly realized that it was added in Java 14 and therefore wouldn't be supported on all versions of Java.
 
 This program is a text-based implementation of the classic game of Hangman in Java. Players guess letters to uncover a secret word within a limited number of attempts.
 
@@ -16,7 +16,9 @@ Continue guessing letters until you either win by guessing the correct word or l
 
 *Game Features*
 
--Enter a word for the opposing player to guess
+-Enter a word for the opposing player to guess.
+After the player who choses a word has inputted the word to guess, a for loop that iterates 50 times prints 
+an empty string then skips a line to hide the word displayed in the console from the guesser.
 Displays a partially guessed word with underscores representing unguessed letters.
 Allows players to enter letter guesses.
 Tracks and displays guessed letters and remaining attempts.
