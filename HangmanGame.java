@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.util.Scanner; 
+
 public class HangmanGame {
     //Secret word to guess
     private final String secretWord;
@@ -12,7 +13,11 @@ public class HangmanGame {
     private boolean gameWon;
     //Game lost
     private boolean gameLost;
-
+    
+    /**
+     * This method is to hide the secret word (or sentence) and replace any characters with '_'
+     * @param word
+     */
     public HangmanGame(String word) {
         secretWord = word.toLowerCase();
         guessedWord = new StringBuilder();
@@ -29,6 +34,40 @@ public class HangmanGame {
         gameLost = false;
     }
 
+    /**
+     * This method is used to build the visual representation of the hangman
+     * Disclaimer, I decided to go with a standard switch-case rather than the enhanced due to compatibilty with older versions of java
+     * @param remainingAttempts
+     */
+    public void hangmanBuilder(int remainingAttempts){
+        switch (remainingAttempts) {
+            case 6:
+                System.out.println("____\n" + "|  |\n" + "|  |\n" + "|\n" + "|\n" + "|\n" + "|\n" + "-------");
+                break;
+            case 5:
+                System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "|\n" + "|\n" + "|\n" + "-------");
+                break;
+            case 4:
+                System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "|  |\n" + "|\n" + "|\n" + "-------");
+                break;
+            case 3:
+                System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "|  |\\\n" + "|\n" + "|\n" + "-------");
+                break;
+            case 2:
+                System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "| /|\\\n" + "|\n" + "|\n" + "-------");
+                break;
+            case 1:
+                System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "| /|\\\n" + "| /\n" + "|\n" + "-------");
+                break;
+            case 0:
+                System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  X\n" + "| /|\\\n" + "| / \\\n" + "|\n" + "-------");
+                break;
+        }
+    }
+
+    /**
+     * This method is used to actually play the game
+     */
     public void playGame() {
         //Prints space between the inputted word and the beginning of the game so the guesser can't see the answer in the console
         for(int i = 0; i < 50; i++){
@@ -36,10 +75,10 @@ public class HangmanGame {
         }
         System.out.println("Welcome to Hangman!\n" + "____\n" + "|  |\n" + "|  |\n" + "|\n" + "|\n" + "|\n" + "|\n" + "-------");
         System.out.println("Guess the word: " + guessedWord.toString());
-        Scanner scanner = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         while (!gameWon && !gameLost) {
             System.out.print("Enter a letter: ");
-            char guess = scanner.next().toLowerCase().charAt(0);
+            char guess = in.next().toLowerCase().charAt(0);
             if (guessedLetters.toString().contains(String.valueOf(guess))) {
                 System.out.println("You already guessed that letter. Try again!");
                 continue;
@@ -51,38 +90,12 @@ public class HangmanGame {
                         guessedWord.setCharAt(i, guess);
                     }
                 }
-                System.out.println("Correct!");
+                System.out.println("Correct!\n");
             } else {
                 remainingAttempts--;
                 System.out.println("Incorrect! Remaining attempts: " + remainingAttempts + "\n");
-                //Display the hangman figure based on the number of remaining attempts.
-                //Each case corresponds to a specific number of remaining attempts and
-                //prints the appropriate hangman figure.
-                //*Disclaimer*
-                //Could be an enhanced switch statement, however to account for older versions of Java I went for a traditional case and break statement
-                switch (remainingAttempts) {
-                    case 6:
-                        System.out.println("____\n" + "|  |\n" + "|  |\n" + "|\n" + "|\n" + "|\n" + "|\n" + "-------");
-                        break;
-                    case 5:
-                        System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "|\n" + "|\n" + "|\n" + "-------");
-                        break;
-                    case 4:
-                        System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "|  |\n" + "|\n" + "|\n" + "-------");
-                        break;
-                    case 3:
-                        System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "|  |\\\n" + "|\n" + "|\n" + "-------");
-                        break;
-                    case 2:
-                        System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "| /|\\\n" + "|\n" + "|\n" + "-------");
-                        break;
-                    case 1:
-                        System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  o\n" + "| /|\\\n" + "| /\n" + "|\n" + "-------");
-                        break;
-                    case 0:
-                        System.out.println("____\n" + "|  |\n" + "|  |\n" + "|  X\n" + "| /|\\\n" + "| / \\\n" + "|\n" + "-------");
-                        break;
-                }
+                //Display the hangman visual
+                hangmanBuilder(remainingAttempts);                
             }
             System.out.println("Guessed letters: " + guessedLetters);
             System.out.println("Current word: " + guessedWord);
@@ -100,9 +113,9 @@ public class HangmanGame {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         System.out.print("Enter the word to guess: ");
-        String word = scanner.nextLine().toLowerCase();
+        String word = in.nextLine().toLowerCase();
 
         HangmanGame hangmanGame = new HangmanGame(word);
         hangmanGame.playGame();
