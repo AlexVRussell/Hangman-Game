@@ -70,7 +70,7 @@ public class HangmanGame {
      */
     public void playGame() {
         //Prints space between the inputted word and the beginning of the game so the guesser can't see the answer in the console
-        for(int i = 0; i < 50; i++){
+        for(int i = 0; i < 25; i++){
             System.out.println("");
         }
         System.out.println("Welcome to Hangman!\n" + "____\n" + "|  |\n" + "|  |\n" + "|\n" + "|\n" + "|\n" + "|\n" + "-------");
