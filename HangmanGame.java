@@ -1,17 +1,12 @@
 import java.util.Scanner; 
 
 public class HangmanGame {
-    //Secret word to guess
+    
     private final String secretWord;
-    //Partially guessed word
     private final StringBuilder guessedWord;
-    //Number of remaining attempts
     private int remainingAttempts;
-    //Guessed letters
     private final StringBuilder guessedLetters;
-    //Game won
     private boolean gameWon;
-    //Game lost
     private boolean gameLost;
     
     /**
@@ -69,6 +64,7 @@ public class HangmanGame {
      * This method is used to actually play the game
      */
     public void playGame() {
+
         //Prints space between the inputted word and the beginning of the game so the guesser can't see the answer in the console
         for(int i = 0; i < 25; i++){
             System.out.println("");
@@ -110,12 +106,12 @@ public class HangmanGame {
         } else if (gameLost) {
             System.out.println("Game over! You lost! The word was: " + secretWord);
         }
+        in.close();
     }
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the word to guess: ");
-        String word = in.nextLine().toLowerCase();
+        String word = in.nextLine().toLowerCase();al
 
         HangmanGame hangmanGame = new HangmanGame(word);
         hangmanGame.playGame();
